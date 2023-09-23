@@ -89,11 +89,17 @@ return (
       <Header onAdd={()=>{setShowAddTask(!showAddTask) 
         }} showAdd={showAddTask}/>
 
-        {showAddTask && <AddTask onAdd={addTask}/>}         
-          {tasks.length >0 ?
+       <Routes>
+        <Route path="/" element={
+          <>           
+           {showAddTask && <AddTask onAdd={addTask}/>}         
+            {tasks.length >0 ?
           <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>: 
-        'No Task To Show'}
+          'No Task To Show'}
+          </>
 
+        }/>
+       </Routes>
 
      
     <Routes>
